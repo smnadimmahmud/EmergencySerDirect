@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Emergency Service Directory - Bangladesh</title>
+  <meta name="description" content="Government emergency services at your fingertips — Bangladesh." />
+  <link rel="icon" href="assets/logo.png" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50:'#ecfdf5',100:'#d1fae5',200:'#a7f3d0',300:'#6ee7b7',400:'#34d399',
+              500:'#16a34a',600:'#169c48',700:'#128c3f',800:'#0f6b47',900:'#0b5b3e'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-[#F6FAF7] text-slate-800">
+
+  <header class="sticky top-0 z-50 bg-white border-b border-slate-200">
+    <nav class="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
+      <div class="flex h-14 sm:h-16 items-center justify-between gap-3">
+
+        <a href="#" class="flex items-center gap-3 min-w-0">
+          <img src="assets/logo.png" alt="Govt Logo" class="h-8 w-8 sm:h-9 sm:w-9 rounded-full ring-2 ring-green-200" />
+          <div class="leading-tight truncate">
+            <p class="text-[16px] sm:text-[18px] font-semibold">Emergency Service</p>
+            <p class="text-slate-500 -mt-0.5 text-[12px] sm:text-[13px] hidden sm:block">Government of Bangladesh</p>
+          </div>
+        </a>
+
+        <div class="flex items-center justify-end gap-2 sm:gap-3 flex-wrap">
+          <div class="flex items-center gap-2 rounded-full bg-white px-2.5 py-1 text-xs sm:text-sm font-semibold shadow-sm ring-1 ring-slate-200">
+            <img src="assets/heart.png" class="h-4 w-4" alt="Heart" />
+            <span id="likeCount">0</span>
+          </div>
+          <div class="flex items-center gap-2 rounded-full bg-white px-2.5 py-1 text-xs sm:text-sm font-semibold shadow-sm ring-1 ring-slate-200">
+            <img src="assets/coin.png" class="h-4 w-4" alt="Coin" />
+            <span id="coinCount">100</span>
+          </div>
+          <button id="copyPill"
+            class="flex items-center gap-2 rounded-full bg-brand-500 hover:bg-brand-700 text-white px-3.5 sm:px-4 py-1 text-xs sm:text-sm font-semibold transition">
+            <span id="copyCount">0</span>
+            <span>Copy</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section
+    style="background: radial-gradient(1200px 360px at 50% -60%, #27B56D 0%, #0E6B48 55%, #0B593C 100%);"
+    class="text-white">
+    <div class="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 py-8 md:py-12 text-center">
+      <img src="assets/logo-dark.png" alt="Bangladesh Govt"
+           class="h-14 w-14 md:h-20 md:w-20 mx-auto rounded-full ring-2 ring-white/50 drop-shadow" />
+      <h1 class="text-white text-2xl sm:text-3xl md:text-4xl font-semibold mt-3 md:mt-4">
+        Emergency Service Directory
+      </h1>
+      <p class="text-emerald-50 mt-1.5 md:mt-2 text-xs sm:text-sm md:text-base max-w-3xl mx-auto">
+        Government Emergency Services at Your Fingertips - A project by the Government of the People's Republic of Bangladesh
+      </p>
+    </div>
+  </section>
+
+  <main class="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 mt-5 md:mt-8 pb-16">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 md:gap-6">
+    
+      <section class="lg:col-span-9">
+        <div id="cards" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+    
+        </div>
+      </section>
+
+      <aside class="lg:col-span-3">
+        <div class="bg-white rounded-2xl shadow border border-slate-200 h-fit xl:sticky xl:top-24">
+          <div class="flex items-center justify-between px-4 py-3 border-b border-slate-200">
+            <div class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l3 3M12 21a9 9 0 100-18 9 9 0 000 18z"/>
+              </svg>
+              <h2 class="text-base sm:text-lg font-semibold">Call History</h2>
+            </div>
+            <button id="clearHistoryBtn"
+                    class="rounded-full bg-brand-500 hover:bg-brand-700 text-white px-4 md:px-5 h-8 md:h-9 text-xs md:text-sm font-semibold transition">
+              Clear
+            </button>
+          </div>
+          <ul id="historyList" class="divide-y divide-slate-100 max-h-[70vh] xl:max-h-[820px] overflow-auto"></ul>
+          <p id="noHistory" class="text-slate-500 text-sm p-4">No calls yet. Your recent calls will appear here.</p>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="border-t bg-white">
+    <div class="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 py-5 text-center text-xs sm:text-sm text-slate-600">
+      © <span id="year"></span> Emergency Service Directory — Bangladesh
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

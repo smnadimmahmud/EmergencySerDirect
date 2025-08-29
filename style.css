@@ -1,0 +1,74 @@
+
+.card {
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(2, 6, 23, .12);
+}
+
+
+.heart-btn {
+  user-select: none;
+  line-height: 1;
+  font-size: 18px;
+  color: #94a3b8; 
+  transition: color .15s ease;
+}
+.heart-btn:hover {
+  color: #16a34a;
+}
+
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .25rem;
+  padding: .125rem .5rem;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 600;
+  background: #ECFDF5;
+  color: #065F46;
+}
+
+
+.hero-subtitle {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 1rem;
+  display: inline-block; 
+  text-align: center;
+  width: 100%;
+  margin-top: 0.75rem;
+}
+
+
+@media (max-width: 1024px) {
+  .card {
+    margin-bottom: 1.5rem;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .lg\\:sticky {
+    position: relative !important;
+  }
+}
+
+
+@media (min-width: 1024px) {
+  .lg\\:col-span-9 {
+    grid-column: span 9 / span 9;
+  }
+  .lg\\:col-span-3 {
+    grid-column: span 3 / span 3;
+  }
+}
